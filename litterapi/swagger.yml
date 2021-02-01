@@ -1,0 +1,178 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger Rest Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /
+
+# Paths supported by the server application
+paths:
+  /:
+    get:
+      operationId: ui.home
+      tags:
+        - UI
+      summary: Get Swagger UI Home
+      description: Get Swagger UI Home
+      responses:
+        200:
+          description: Successfully got Swagger Home
+
+  /inventory:
+    get:
+      operationId: inventory.read_all
+      tags:
+        - Inventory
+      summary: Read the entire set of servers, sorted by hostname
+      description: Read the entire set of servers, sorted by hostname
+      responses:
+        200:
+          description: Successfully read inventory set operation
+          schema:
+            type: array
+            items:
+              properties:
+                inventory_id:
+                  type: string
+                  description: Id of the inventory
+                appid:
+                  type: string
+                  description: Application ID
+                hname:
+                  type: string
+                  description: hostname of the server
+                timestamp:
+                  type: string
+                  description: Creation/Update timestamp of the inventory
+
+    post:
+      operationId: inventory.create
+      tags:
+        - Inventory
+      summary: Create a inventory
+      description: Create a new inventory
+      parameters:
+        - name: inventory
+          in: body
+          description: Inventory to create
+          required: True
+          schema:
+            type: object
+            properties:
+              appid:
+                type: string
+                description: Application ID of inventory to create
+              hname:
+                type: string
+                description: Hostname of inventory to create
+      responses:
+        201:
+          description: Successfully created inventory
+          schema:
+            properties:
+              inventory_id:
+                type: string
+                description: Id of the inventory
+              appid:
+                type: string
+                description: Name of the application
+              hname:
+                type: string
+                description: Hostname of the inventory
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the inventory record
+
+  /inventory/{inventory_id}:
+    get:
+      operationId: inventory.read_one
+      tags:
+        - Inventory
+      summary: Read one Inventory item
+      description: Read one Inventory item
+      parameters:
+        - name: inventory_id
+          in: path
+          description: Id of the inventory to get
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully read item from inventory data operation
+          schema:
+            type: object
+            properties:
+              inventory_id:
+                type: string
+                description: Id of the inventory
+              appid:
+                type: string
+                description: Application ID
+              hname:
+                type: string
+                description: Hostname of the inventory
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the inventory record
+
+    put:
+      operationId: inventory.update
+      tags:
+        - Inventory
+      summary: Update a inventory
+      description: Update a inventory
+      parameters:
+        - name: inventory_id
+          in: path
+          description: Id the inventory to update
+          type: integer
+          required: True
+        - name: inventory
+          in: body
+          schema:
+            type: object
+            properties:
+              appid:
+                type: string
+                description: Application ID
+              hname:
+                type: string
+                description: Hostname of the inventory
+      responses:
+        200:
+          description: Successfully updated inventory
+          schema:
+            properties:
+              inventory_ud:
+                type: string
+                description: Id of the inventory in the database
+              appid:
+                type: string
+                description: Application ID
+              hname:
+                type: string
+                description: Hostname of the inventory
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the inventory record
+
+    delete:
+      operationId: inventory.delete
+      tags:
+        - Inventory
+      summary: Delete a item from the inventory list
+      description: Delete a inventory
+      parameters:
+        - name: inventory_id
+          in: path
+          type: integer
+          description: Id of the inventory to delete
+          required: true
+      responses:
+        200:
+          description: Successfully deleted a inventory
