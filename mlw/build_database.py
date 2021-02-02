@@ -1,6 +1,6 @@
 import os
 from config import db
-from models import Inventory
+from models import MarinaLitterWatch
 
 # Data to initialize database with
 INVENTORY = [
@@ -19,15 +19,15 @@ INVENTORY = [
 ]
 
 # Delete database file if it exists currently
-if os.path.exists("inventory.db"):
-    os.remove("inventory.db")
+if os.path.exists("mlw.db"):
+    os.remove("mlw.db")
 
 # Create the database
 db.create_all()
 
 # iterate over the PEOPLE structure and populate the database
 for item in INVENTORY:
-    i = Inventory(appid=item.get("appid"), hname=item.get("hname"))
+    i = MarinaLitterWatch(appid=item.get("appid"), hname=item.get("hname"))
     db.session.add(i)
 
 db.session.commit()

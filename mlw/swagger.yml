@@ -23,23 +23,23 @@ paths:
         200:
           description: Successfully got Swagger Home
 
-  /inventory:
+  /mlw:
     get:
-      operationId: inventory.read_all
+      operationId: mlw.read_all
       tags:
-        - Inventory
+        - MLW
       summary: Read the entire set of servers, sorted by hostname
       description: Read the entire set of servers, sorted by hostname
       responses:
         200:
-          description: Successfully read inventory set operation
+          description: Successfully read mlw set operation
           schema:
             type: array
             items:
               properties:
-                inventory_id:
+                mlw_id:
                   type: string
-                  description: Id of the inventory
+                  description: Id of the mlw
                 appid:
                   type: string
                   description: Application ID
@@ -48,91 +48,91 @@ paths:
                   description: hostname of the server
                 timestamp:
                   type: string
-                  description: Creation/Update timestamp of the inventory
+                  description: Creation/Update timestamp of the mlw
 
     post:
-      operationId: inventory.create
+      operationId: mlw.create
       tags:
-        - Inventory
-      summary: Create a inventory
-      description: Create a new inventory
+        - MLW
+      summary: Create a mlw
+      description: Create a new mlw
       parameters:
-        - name: inventory
+        - name: mlw
           in: body
-          description: Inventory to create
+          description: MLW to create
           required: True
           schema:
             type: object
             properties:
               appid:
                 type: string
-                description: Application ID of inventory to create
+                description: Application ID of mlw to create
               hname:
                 type: string
-                description: Hostname of inventory to create
+                description: Hostname of mlw to create
       responses:
         201:
-          description: Successfully created inventory
+          description: Successfully created mlw
           schema:
             properties:
-              inventory_id:
+              mlw_id:
                 type: string
-                description: Id of the inventory
+                description: Id of the mlw
               appid:
                 type: string
                 description: Name of the application
               hname:
                 type: string
-                description: Hostname of the inventory
+                description: Hostname of the mlw
               timestamp:
                 type: string
-                description: Creation/Update timestamp of the inventory record
+                description: Creation/Update timestamp of the mlw record
 
-  /inventory/{inventory_id}:
+  /mlw/{mlw_id}:
     get:
-      operationId: inventory.read_one
+      operationId: mlw.read_one
       tags:
-        - Inventory
-      summary: Read one Inventory item
-      description: Read one Inventory item
+        - MLW
+      summary: Read one MLW item
+      description: Read one MLW item
       parameters:
-        - name: inventory_id
+        - name: mlw_id
           in: path
-          description: Id of the inventory to get
+          description: Id of the mlw to get
           type: integer
           required: True
       responses:
         200:
-          description: Successfully read item from inventory data operation
+          description: Successfully read item from mlw data operation
           schema:
             type: object
             properties:
-              inventory_id:
+              mlw_id:
                 type: string
-                description: Id of the inventory
+                description: Id of the mlw
               appid:
                 type: string
                 description: Application ID
               hname:
                 type: string
-                description: Hostname of the inventory
+                description: Hostname of the mlw
               timestamp:
                 type: string
-                description: Creation/Update timestamp of the inventory record
+                description: Creation/Update timestamp of the mlw record
 
     put:
-      operationId: inventory.update
+      operationId: mlw.update
       tags:
-        - Inventory
-      summary: Update a inventory
-      description: Update a inventory
+        - MLW
+      summary: Update a mlw
+      description: Update a mlw
       parameters:
-        - name: inventory_id
+        - name: mlw_id
           in: path
-          description: Id the inventory to update
+          description: Id the mlw to update
           type: integer
           required: True
-        - name: inventory
+        - name: mlw
           in: body
           schema:
             type: object
@@ -142,37 +142,37 @@ paths:
                 description: Application ID
               hname:
                 type: string
-                description: Hostname of the inventory
+                description: Hostname of the mlw
       responses:
         200:
-          description: Successfully updated inventory
+          description: Successfully updated mlw
           schema:
             properties:
-              inventory_ud:
+              mlw_ud:
                 type: string
-                description: Id of the inventory in the database
+                description: Id of the mlw in the database
               appid:
                 type: string
                 description: Application ID
               hname:
                 type: string
-                description: Hostname of the inventory
+                description: Hostname of the mlw
               timestamp:
                 type: string
-                description: Creation/Update timestamp of the inventory record
+                description: Creation/Update timestamp of the mlw record
 
     delete:
-      operationId: inventory.delete
+      operationId: mlw.delete
       tags:
-        - Inventory
-      summary: Delete a item from the inventory list
-      description: Delete a inventory
+        - MLW
+      summary: Delete a item from the mlw list
+      description: Delete a mlw
       parameters:
-        - name: inventory_id
+        - name: mlw_id
           in: path
           type: integer
-          description: Id of the inventory to delete
+          description: Id of the mlw to delete
           required: true
       responses:
         200:
-          description: Successfully deleted a inventory
+          description: Successfully deleted a mlw
