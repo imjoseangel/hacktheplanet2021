@@ -26,8 +26,8 @@ if os.path.exists("mlw.db"):
 db.create_all()
 
 # iterate over the PEOPLE structure and populate the database
-for item in MLW:
-    i = MarinaLitterWatch(appid=item.get("appid"), hname=item.get("hname"))
-    db.session.add(i)
+# for item in MLW:
+#     i = MarinaLitterWatch(appid=item.get("appid"), hname=item.get("hname"))
+#     db.session.add(i)
 
 db.session.commit()
