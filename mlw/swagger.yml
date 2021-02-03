@@ -1,8 +1,10 @@
 swagger: "2.0"
 info:
-  description: This is the swagger file that goes with our server code
+  description: >
+    Subset of Marine Litter Watch’s data to help answer the Earth Challenge 2020
+    research question, “What is the Extent of Plastic Pollution?
   version: "1.0.0"
-  title: Swagger Rest Article
+  title: Marine Litter Watch (MLW) Plastic Pollution
 consumes:
   - application/json
 produces:
@@ -28,8 +30,8 @@ paths:
       operationId: mlw.read_all
       tags:
         - MLW
-      summary: Read the entire set of servers, sorted by hostname
-      description: Read the entire set of servers, sorted by hostname
+      summary: Read the entire data set, sorted by id
+      description: Read the entire data set, sorted by id
       responses:
         200:
           description: Successfully read mlw set operation
@@ -42,83 +44,13 @@ paths:
                   description: Id of the mlw
                 appid:
                   type: string
-                  description: Application ID
+                  description: Register ID
                 hname:
                   type: string
                   description: hostname of the server
                 timestamp:
                   type: string
                   description: Creation/Update timestamp of the mlw
-
-    post:
-      operationId: mlw.create
-      tags:
-        - MLW
-      summary: Create a mlw
-      description: Create a new mlw
-      parameters:
-        - name: mlw
-          in: body
-          description: MLW to create
-          required: True
-          schema:
-            type: object
-            properties:
-              appid:
-                type: string
-                description: Application ID of mlw to create
-              hname:
-                type: string
-                description: Hostname of mlw to create
-      responses:
-        201:
-          description: Successfully created mlw
-          schema:
-            properties:
-              mlw_id:
-                type: string
-                description: Id of the mlw
-              appid:
-                type: string
-                description: Name of the application
-              hname:
-                type: string
-                description: Hostname of the mlw
-              timestamp:
-                type: string
-                description: Creation/Update timestamp of the mlw record
-
-  /mlw/{mlw_id}:
-    get:
-      operationId: mlw.read_one
-      tags:
-        - MLW
-      summary: Read one MLW item
-      description: Read one MLW item
-      parameters:
-        - name: mlw_id
-          in: path
-          description: Id of the mlw to get
-          type: integer
-          required: True
-      responses:
-        200:
-          description: Successfully read item from mlw data operation
-          schema:
-            type: object
-            properties:
-              mlw_id:
-                type: string
-                description: Id of the mlw
-              appid:
-                type: string
-                description: Application ID
-              hname:
-                type: string
-                description: Hostname of the mlw
-              timestamp:
-                type: string
-                description: Creation/Update timestamp of the mlw record
 
     put:
       operationId: mlw.update
@@ -160,19 +92,3 @@ paths:
               timestamp:
                 type: string
                 description: Creation/Update timestamp of the mlw record
-
-    delete:
-      operationId: mlw.delete
-      tags:
-        - MLW
-      summary: Delete a item from the mlw list
-      description: Delete a mlw
-      parameters:
-        - name: mlw_id
-          in: path
-          type: integer
-          description: Id of the mlw to delete
-          required: true
-      responses:
-        200:
-          description: Successfully deleted a mlw
