@@ -3,7 +3,7 @@ from config import db
 from models import MarinaLitterWatch
 
 # Data to initialize database with
-INVENTORY = [
+MLW = [
     {
         "appid": "Application1",
         "hname": "Server3"
@@ -26,7 +26,7 @@ if os.path.exists("mlw.db"):
 db.create_all()
 
 # iterate over the PEOPLE structure and populate the database
-for item in INVENTORY:
+for item in MLW:
     i = MarinaLitterWatch(appid=item.get("appid"), hname=item.get("hname"))
     db.session.add(i)
 
