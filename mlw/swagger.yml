@@ -41,51 +41,53 @@ paths:
             items:
               properties:
                 index:
-                  type: string
+                  type: integer
                   description: Id of the mlw
-                beachname:
-                  type: string
-                  description: Beach Name
                 communityname:
                   type: string
                   description: Community Name
-
-
-    post:
-      operationId: mlw.create
-      tags:
-        - MLW
-      summary: Create a mlw
-      description: Create a new mlw
-      parameters:
-        - name: mlw
-          in: body
-          description: MLW to create
-          required: True
-          schema:
-            type: object
-            properties:
-              beachname:
-                type: string
-                description: Beach Name
-              communityname:
-                type: string
-                description: Community Name
-      responses:
-        201:
-          description: Successfully created mlw
-          schema:
-            properties:
-              index:
-                type: string
-                description: Id of the mlw
-              beachname:
-                type: string
-                description: Beach Name
-              communityname:
-                type: string
-                description: Community Name
-
+                beachname:
+                  type: string
+                  description: Beach Name
+                beachcountrycode:
+                  type: string
+                  description: Beach Country Code
+                beachregionalsea:
+                  type: string
+                  description: Beach Regional Sea
+                beachlength_m:
+                  type: string
+                  description: Beach Length in meters
+                beachlocation:
+                  type: string
+                  description: Beach Location
+                beachtype:
+                  type: string
+                  description: Beach Type
+                eventdate:
+                  type: integer
+                  description: Date of the event
+                eventtype:
+                  type: string
+                  description: Event Type
+                natref:
+                  type: string
+                  description: NAT Reference
+                lon_x1:
+                  type: string
+                  description: Longitude X1
+                lat_y1:
+                  type: string
+                  description: Latitude Y1
+                lon_x2:
+                  type: string
+                  description: Longitude X2
+                lat_y2:
+                  type: string
+                  description: Latitude Y2
+                gs:
+                  type: integer
+                  description: Type of plastic
 
   /mlw/{index}:
     get:
@@ -107,66 +109,50 @@ paths:
             type: object
             properties:
               index:
-                type: string
+                type: integer
                 description: Id of the mlw
-              beachname:
-                type: string
-                description: Beach Name
               communityname:
                 type: string
                 description: Community Name
-
-
-    put:
-      operationId: mlw.update
-      tags:
-        - MLW
-      summary: Update a mlw
-      description: Update a mlw
-      parameters:
-        - name: index
-          in: path
-          description: Id the mlw to update
-          type: integer
-          required: True
-        - name: mlw
-          in: body
-          schema:
-            type: object
-            properties:
               beachname:
                 type: string
                 description: Beach Name
-              communityname:
+              beachcountrycode:
                 type: string
-                description: Community Name
-      responses:
-        200:
-          description: Successfully updated mlw
-          schema:
-            properties:
-              index:
+                description: Beach Country Code
+              beachregionalsea:
                 type: string
-                description: Id of the mlw in the database
-              beachname:
+                description: Beach Regional Sea
+              beachlength_m:
                 type: string
-                description: Beach Name
-              communityname:
+                description: Beach Length in meters
+              beachlocation:
                 type: string
-                description: Community Name
-
-    delete:
-      operationId: mlw.delete
-      tags:
-        - MLW
-      summary: Delete a item from the mlw list
-      description: Delete a mlw
-      parameters:
-        - name: index
-          in: path
-          type: integer
-          description: Id of the mlw to delete
-          required: true
-      responses:
-        200:
-          description: Successfully deleted a mlw
+                description: Beach Location
+              beachtype:
+                type: string
+                description: Beach Type
+              eventdate:
+                type: integer
+                description: Date of the event
+              eventtype:
+                type: string
+                description: Event Type
+              natref:
+                type: string
+                description: NAT Reference
+              lon_x1:
+                type: string
+                description: Longitude X1
+              lat_y1:
+                type: string
+                description: Latitude Y1
+              lon_x2:
+                type: string
+                description: Longitude X2
+              lat_y2:
+                type: string
+                description: Latitude Y2
+              gs:
+                type: integer
+                description: Type of plastic
