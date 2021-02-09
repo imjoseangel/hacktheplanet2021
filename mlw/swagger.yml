@@ -40,18 +40,16 @@ paths:
             type: array
             items:
               properties:
-                mlw_id:
+                index:
                   type: string
                   description: Id of the mlw
-                appid:
+                beachname:
                   type: string
-                  description: Application ID
-                hname:
+                  description: Beach Name
+                communityname:
                   type: string
-                  description: hostname of the server
-                timestamp:
-                  type: string
-                  description: Creation/Update timestamp of the mlw
+                  description: Community Name
+
 
     post:
       operationId: mlw.create
@@ -67,31 +65,29 @@ paths:
           schema:
             type: object
             properties:
-              appid:
+              beachname:
                 type: string
-                description: Application ID of mlw to create
-              hname:
+                description: Beach Name
+              communityname:
                 type: string
-                description: Hostname of mlw to create
+                description: Community Name
       responses:
         201:
           description: Successfully created mlw
           schema:
             properties:
-              mlw_id:
+              index:
                 type: string
                 description: Id of the mlw
-              appid:
+              beachname:
                 type: string
-                description: Name of the application
-              hname:
+                description: Beach Name
+              communityname:
                 type: string
-                description: Hostname of the mlw
-              timestamp:
-                type: string
-                description: Creation/Update timestamp of the mlw record
+                description: Community Name
 
-  /mlw/{mlw_id}:
+
+  /mlw/{index}:
     get:
       operationId: mlw.read_one
       tags:
@@ -99,7 +95,7 @@ paths:
       summary: Read one MLW item
       description: Read one MLW item
       parameters:
-        - name: mlw_id
+        - name: index
           in: path
           description: Id of the mlw to get
           type: integer
@@ -110,18 +106,16 @@ paths:
           schema:
             type: object
             properties:
-              mlw_id:
+              index:
                 type: string
                 description: Id of the mlw
-              appid:
+              beachname:
                 type: string
-                description: Application ID
-              hname:
+                description: Beach Name
+              communityname:
                 type: string
-                description: Hostname of the mlw
-              timestamp:
-                type: string
-                description: Creation/Update timestamp of the mlw record
+                description: Community Name
+
 
     put:
       operationId: mlw.update
@@ -130,7 +124,7 @@ paths:
       summary: Update a mlw
       description: Update a mlw
       parameters:
-        - name: mlw_id
+        - name: index
           in: path
           description: Id the mlw to update
           type: integer
@@ -140,29 +134,26 @@ paths:
           schema:
             type: object
             properties:
-              appid:
+              beachname:
                 type: string
-                description: Application ID
-              hname:
+                description: Beach Name
+              communityname:
                 type: string
-                description: Hostname of the mlw
+                description: Community Name
       responses:
         200:
           description: Successfully updated mlw
           schema:
             properties:
-              mlw_id:
+              index:
                 type: string
                 description: Id of the mlw in the database
-              appid:
+              beachname:
                 type: string
-                description: Application ID
-              hname:
+                description: Beach Name
+              communityname:
                 type: string
-                description: Hostname of the mlw
-              timestamp:
-                type: string
-                description: Creation/Update timestamp of the mlw record
+                description: Community Name
 
     delete:
       operationId: mlw.delete
@@ -171,7 +162,7 @@ paths:
       summary: Delete a item from the mlw list
       description: Delete a mlw
       parameters:
-        - name: mlw_id
+        - name: index
           in: path
           type: integer
           description: Id of the mlw to delete

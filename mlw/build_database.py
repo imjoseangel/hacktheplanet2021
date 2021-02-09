@@ -20,10 +20,7 @@ if os.path.exists("mlw.db"):
 # Create the database
 db.create_all()
 
-# iterate over the PEOPLE structure and populate the database
-# for item in MLW:
-#     i = MarinaLitterWatch(appid=item.get("appid"), hname=item.get("hname"))
-#     db.session.add(i)
+# populate the database
 conn = sqlite3.connect('mlw.db')
 data.to_sql('mlw', conn, if_exists='append')
 

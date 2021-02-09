@@ -19,7 +19,7 @@ class MarinaLitterWatch(db.Model):
     beachlength_m = db.Column(db.Integer())
     beachlocation = db.Column(db.String(32))
     beachtype = db.Column(db.String(32))
-    eventdate = db.Column(db.Date())
+    eventdate = db.Column(db.Integer())
     eventtype = db.Column(db.String(32))
     natref = db.Column(db.String(8))
     lon_x1 = db.Column(db.String(16))
@@ -189,8 +189,6 @@ class MarinaLitterWatch(db.Model):
     g210 = db.Column(db.Integer())
     g211 = db.Column(db.Integer())
     g213 = db.Column(db.Integer())
-    timestamp = db.Column(
-        db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 
 class MarinaLitterWatchSchema(SQLAlchemyAutoSchema):

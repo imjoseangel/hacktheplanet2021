@@ -16,7 +16,8 @@ def read_all():
     :return:        json string of list of items
     """
     # Create the list of servers from our data
-    mlw = MarinaLitterWatch.query.order_by(MarinaLitterWatch.hname).all()
+    mlw = MarinaLitterWatch.query.order_by(
+        MarinaLitterWatch.communityname).all()
 
     # Serialize the data for the response
     mlw_schema = MarinaLitterWatchSchema(many=True)
@@ -24,17 +25,17 @@ def read_all():
     return data
 
 
-def read_one(mlw_id):
+def read_one(index):
     """
-    This function responds to a request for /mlw/{mlw_id}
+    This function responds to a request for /mlw/{index}
     with one matching item from mlw
 
-    :param mlw_id:   Id of mlw to find
+    :param index:   Id of mlw to find
     :return:               Mlw matching id
     """
     # Get the item requested
     mlw = MarinaLitterWatch.query.filter(
-        MarinaLitterWatch.mlw_id == mlw_id).one_or_none()
+        MarinaLitterWatch.index == index).one_or_none()
 
     # Did we find a mlw?
     if mlw is not None:
@@ -48,8 +49,8 @@ def read_one(mlw_id):
     else:
         abort(
             404,
-            "MLW Register not found for Id: {mlw_id}".format(
-                mlw_id=mlw_id),
+            "MLW Register not found for Id: {index}".format(
+                index=index),
         )
 
 
@@ -62,11 +63,11 @@ def create(mlw):
     :return:           201 on success, 406 on mlw exists
     """
     appid = mlw.get("appid")
-    hname = mlw.get("hname")
+    communityname = mlw.get("communityname")
 
     existing_mlw = (MarinaLitterWatch.query.filter(
         MarinaLitterWatch.appid == appid).filter(
-            MarinaLitterWatch.hname == hname).one_or_none())
+            MarinaLitterWatch.communityname == communityname).one_or_none())
 
     # Can we insert this item?
     if existing_mlw is None:
@@ -88,22 +89,22 @@ def create(mlw):
     else:
         abort(
             409,
-            "MLW Register {appid} {hname} exists already".format(
-                appid=appid, hname=hname),
+            "MLW Register {appid} {communityname} exists already".format(
+                appid=appid, communityname=communityname),
         )
 
 
-def update(mlw_id, mlw):
+def update(index, mlw):
     """
     This function updates an existing item in the mlw structure
 
-    :param mlw_id:   Id of the mlw to update
+    :param index:   Id of the mlw to update
     :param mlw:      mlw to update
     :return:               updated mlw structure
     """
     # Get the item requested from the db into session
     update_mlw = MarinaLitterWatch.query.filter(
-        MarinaLitterWatch.mlw_id == mlw_id).one_or_none()
+        MarinaLitterWatch.index == index).one_or_none()
 
     # Did we find a item?
     if update_mlw is not None:
@@ -113,7 +114,7 @@ def update(mlw_id, mlw):
         update = schema.load(mlw, session=db.session)
 
         # Set the id to the mlw we want to update
-        update.mlw_id = update_mlw.mlw_id
+        update.index = update_mlw.index
 
         # merge the new object into the old and commit it to the db
         db.session.merge(update)
@@ -128,34 +129,34 @@ def update(mlw_id, mlw):
     else:
         abort(
             404,
-            "MLW Register not found for Id: {mlw_id}".format(
-                mlw_id=mlw_id),
+            "MLW Register not found for Id: {index}".format(
+                index=index),
         )
 
 
-def delete(mlw_id):
+def delete(index):
     """
     This function deletes an item from the mlw structure
 
-    :param mlw_id:   Id of the mlw to delete
+    :param index:   Id of the mlw to delete
     :return:               200 on successful delete, 404 if not found
     """
     # Get the item requested
     mlw = MarinaLitterWatch.query.filter(
-        MarinaLitterWatch.mlw_id == mlw_id).one_or_none()
+        MarinaLitterWatch.index == index).one_or_none()
 
     # Did we find a MLW Register?
     if mlw is not None:
         db.session.delete(mlw)
         db.session.commit()
         return make_response(
-            "MLW Register {mlw_id} deleted".format(
-                mlw_id=mlw_id), 200)
+            "MLW Register {index} deleted".format(
+                index=index), 200)
 
     # Otherwise, nope, didn't find that mlw
     else:
         abort(
             404,
-            "MLW Register not found for Id: {mlw_id}".format(
-                mlw_id=mlw_id),
+            "MLW Register not found for Id: {index}".format(
+                index=index),
         )
