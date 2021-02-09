@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import (division, absolute_import, print_function,
+                        unicode_literals)
+
 from datetime import datetime, date
 from config import db
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
@@ -5,11 +11,12 @@ from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 class MarinaLitterWatch(db.Model):
     __tablename__ = "mlw"
-    mlw_id = db.Column(db.Integer, primary_key=True)
+    index = db.Column(db.Integer, primary_key=True)
     communityname = db.Column(db.String(128))
     beachname = db.Column(db.String(128))
     beachcountrycode = db.Column(db.String(2))
-    beachlength = db.Column(db.Integer())
+    beachregionalsea = db.Column(db.String(32))
+    beachlength_m = db.Column(db.Integer())
     beachlocation = db.Column(db.String(32))
     beachtype = db.Column(db.String(32))
     eventdate = db.Column(db.Date())
@@ -182,7 +189,6 @@ class MarinaLitterWatch(db.Model):
     g210 = db.Column(db.Integer())
     g211 = db.Column(db.Integer())
     g213 = db.Column(db.Integer())
-
     timestamp = db.Column(
         db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
