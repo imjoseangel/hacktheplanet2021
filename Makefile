@@ -26,6 +26,10 @@ build: clean ## Build the project
 		python setup.py clean
 		python setup.py sdist bdist_wheel
 
+builddb: ## Build new db
+		$(info Make: Build the database)
+		cd mlw; python build_database.py
+
 install: ## Install in editable mode
 		$(info Make: Install in editable mode)
 		pip install -e ./

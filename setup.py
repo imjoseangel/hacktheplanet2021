@@ -18,7 +18,7 @@ class CleanCommand(Command):
     CLEAN_FILES = ('./build', './dist', './*.pyc',
                    './*.tgz', './*.egg-info', './.pytest_cache',
                    '.benchmarks', './tests/__pycache__',
-                   './powerline_k8sstatus/__pycache__',
+                   './mlw/__pycache__',
                    './__pycache__')
 
     user_options = []
