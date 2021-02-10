@@ -133,3 +133,6 @@ dmypy.json
 
 # Data csv
 *.csv
+
+# Downloaded zip
+*.zip
