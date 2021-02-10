@@ -130,3 +130,6 @@ dmypy.json
 
 # sqllite db
 *.db
+
+# Data csv
+*.csv
