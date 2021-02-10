@@ -1,6 +1,8 @@
 """
 Main module of the server file
 """
+from waitress import serve
+
 # local modules
 import config
 
@@ -11,4 +13,5 @@ connex_app = config.connex_app
 connex_app.add_api("swagger.yml")
 
 if __name__ == "__main__":
-    connex_app.run(debug=True)
+    # connex_app.run(debug=True)
+    serve(connex_app.app)

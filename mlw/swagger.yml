@@ -31,8 +31,8 @@ paths:
       operationId: mlw.read_all
       tags:
         - MLW
-      summary: Read the entire set of servers, sorted by hostname
-      description: Read the entire set of servers, sorted by hostname
+      summary: Read the entire set of items, sorted by communityname
+      description: Read the entire set of items, sorted by communityname
       responses:
         200:
           description: Successfully read mlw set operation

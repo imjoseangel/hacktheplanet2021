@@ -15,7 +15,7 @@ def read_all():
 
     :return:        json string of list of items
     """
-    # Create the list of servers from our data
+    # Create the list of items from our data
     mlw = MarinaLitterWatch.query.order_by(
         MarinaLitterWatch.communityname).all()
 
