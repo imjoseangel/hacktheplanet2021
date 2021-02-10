@@ -26,17 +26,21 @@ build: clean ## Build the project
 		python setup.py clean
 		python setup.py sdist bdist_wheel
 
-upload: build ## Upload the project to Pypi
-		$(info Make: Upload the project to Pypi)
-		twine upload dist/*
-
 install: ## Install in editable mode
 		$(info Make: Install in editable mode)
 		pip install -e ./
 
+run: ## Run server application
+		$(info Make: Run the server)
+		python mlw/server.py
+
 uninstall: ## Uninstall package
 		$(info Make: Uninstall package.)
 		pip uninstall mlw
+
+upload: build ## Upload the project to Pypi
+		$(info Make: Upload the project to Pypi)
+		twine upload dist/*
 
 test: ## Run unit tests
 		$(info Make: Run unit tests.)
