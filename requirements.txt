@@ -1,7 +1,7 @@
 connexion
 connexion[swagger-ui]
-flask_sqlalchemy
 flask_marshmallow
+flask_sqlalchemy
 marshmallow-sqlalchemy
 pandas
 waitress
