@@ -1,0 +1,24 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mlw-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  tls:
+  - hosts:
+    - hacktheworld2021.20-69-170-196.nip.io
+    secretName: mlw-api-tls
+  rules:
+    - host: hacktheworld2021.20-69-170-196.nip.io
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: mlw-api
+              port:
+                number: 80
