@@ -1,0 +1,42 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+spec:
+  ports:
+    - port: 6379
+      name: redis
+  clusterIP: None
+  selector:
+    app: redis
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      app: redis  # has to match .spec.template.metadata.labels
+  serviceName: redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis  # has to match .spec.selector.matchLabels
+    spec:
+      containers:
+        - name: redis
+          image: redis:6.0.10
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 6379
+              name: redis
+          resources:
+            requests: # minimum resources required
+              cpu: 1000m
+              memory: 512Mi
+            limits: # maximum resources allocated
+              cpu: 1500m
+              memory: 1000Mi
