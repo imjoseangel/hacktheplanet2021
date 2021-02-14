@@ -1,6 +1,8 @@
 import os
 import connexion
 from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy_caching import CachingQuery
+from flask_caching import Cache
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -17,6 +19,9 @@ sqlite_url = "sqlite:////" + os.path.join(basedir, "mlw.db")
 app.config["SQLALCHEMY_ECHO"] = True
 app.config["SQLALCHEMY_DATABASE_URI"] = sqlite_url
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["CACHE_TYPE"] = "simple"
+app.config["CACHE_DEFAULT_TIMEOUT"] = 300
 
 # Create the SqlAlchemy db instance
-db = SQLAlchemy(app)
+db = SQLAlchemy(app, query_class=CachingQuery)
+cache = Cache(app)

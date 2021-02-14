@@ -4,8 +4,9 @@ mlw data
 """
 
 from flask import make_response, abort
-from config import db
+from config import cache
 from models import MarinaLitterWatch, MarinaLitterWatchSchema
+from flask_sqlalchemy_caching import FromCache
 
 
 def read_all():
@@ -17,7 +18,7 @@ def read_all():
     """
     # Create the list of items from our data
     mlw = MarinaLitterWatch.query.order_by(
-        MarinaLitterWatch.communityname).all()
+        MarinaLitterWatch.communityname).options(FromCache(cache)).all()
 
     # Serialize the data for the response
     mlw_schema = MarinaLitterWatchSchema(many=True)
