@@ -1,7 +1,9 @@
 connexion
 connexion[swagger-ui]
+Flask-Caching
 flask_marshmallow
 flask_sqlalchemy
+Flask-SQLAlchemy-Caching
 marshmallow-sqlalchemy
 pandas
 waitress
