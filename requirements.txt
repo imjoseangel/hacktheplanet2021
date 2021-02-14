@@ -6,4 +6,5 @@ flask_sqlalchemy
 Flask-SQLAlchemy-Caching
 marshmallow-sqlalchemy
 pandas
+redis
 waitress
