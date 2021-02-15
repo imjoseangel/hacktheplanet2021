@@ -20,7 +20,7 @@ class MarinaLitterWatch(db.Model):
     beachlocation = db.Column(db.String(32))
     beachtype = db.Column(db.String(32))
     eventdate = db.Column(db.Integer())
-    eventtype = db.Column(db.String(32))
+    eventType = db.Column(db.String(32))
     natref = db.Column(db.String(8))
     lon_x1 = db.Column(db.String(16))
     lat_y1 = db.Column(db.String(16))
