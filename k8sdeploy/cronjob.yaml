@@ -1,0 +1,29 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: mlw-sender
+  namespace: mlwapp
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: mlw-sender
+            image: docker.io/imjoseangel/hacktheplanet2021:latest
+            imagePullPolicy: IfNotPresent
+            command: ["python3", "/opt/mlw/senddata.py"]
+            env:
+            - name: NR_ACCOUNT
+              valueFrom:
+                secretKeyRef:
+                  name: newrelic
+                  key: Account
+            - name: NR_API
+              valueFrom:
+                secretKeyRef:
+                  name: newrelic
+                  key: X-Insert-Key
+          restartPolicy: Never
