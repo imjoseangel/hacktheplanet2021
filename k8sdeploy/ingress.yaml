@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - hacktheworld2021.20-69-170-196.nip.io
+    - hacktheplanet2021.20-69-170-196.nip.io
     secretName: mlw-api-tls
   rules:
-    - host: hacktheworld2021.20-69-170-196.nip.io
+    - host: hacktheplanet2021.20-69-170-196.nip.io
       http:
         paths:
         - path: /
