@@ -5,7 +5,7 @@ metadata:
   name: mlw-sender
   namespace: mlwapp
 spec:
-  schedule: "*/1 * * * *"
+  schedule: "*/5 * * * *"
   jobTemplate:
     spec:
       template:
