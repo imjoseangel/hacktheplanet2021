@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+    <title>{% block title %}{% endblock %} Page</title>
+    <link rel="stylesheet" href="/static/css/parent.css">
+    {% endblock %}
+</head>
+
+<body>
+    <section class="top-banner">
+        <div class="top-banner-overlay">
+            <h1>Hack the Planet 2021</h1>
+            <p>In today's world, climate change is much more than a vague threat — it's an ever-present reality. As
+                humans continue to
+                impact the environment and a related financial and technological gap persists, vulnerable populations
+                are being hit the
+                hardest and fastest. The planet needs our help!
+                <br><br>
+                Litter, plastics in particular, is accumulating in our seas and coasts. Information and data on marine
+                litter is
+                essential for tackling it.
+                <br><br><b>Data Source: </b><a style='color:white'
+                    href="https://www.eea.europa.eu/themes/water/europes-seas-and-coasts/assessments/marine-litterwatch"
+                    target="_blank">European Environment
+                    Agency</a><br><br>
+                This project has been developed for fun and is part of the <b><a style='color:white'
+                        href="https://dev.to/devteam/announcing-the-new-relic-hack-the-planet-contest-on-dev-5d"
+                        target="_blank">New Relic Hack the Planet Contest</a></b>
+            </p>
+        </div>
+    </section>
+    <nav class="top-nav">
+        <div class="menu-wrapper">
+            <ul class="menu">
+                <li>
+                    <a href="/">home</a>
+                </li>
+                <li>
+                    <a href="">New Relic Graphs</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/graph1">— graph1</a>
+                        </li>
+                        <li>
+                            <a href="">— graph2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/api" target="_blank">api</a>
+                </li>
+                <li>
+                    <a href="https://discomap.eea.europa.eu/map/fme/MLWPivotExport.htm" target="_blank">get data from
+                        the eea</a>
+                </li>
+                <li>
+                    <a href="">project architecture</a>
+                </li>
+                <li>
+                    <a href="">contact</a>
+                </li>
+            </ul>
+            <button class="menu-close" aria-label="close menu">✕</button>
+        </div>
+        <div class="fixed-menu">
+            <h2 class="logo">Marine Litter Watch</h2>
+            <button class="menu-open" aria-label="open menu">☰</button>
+            <ul class="socials">
+                <li>
+                    <a href="https://imjoseangel.github.io" target="_blank">GitHub</a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/imjoseangel" target="_blank">twitter</a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/joseangelmunoz" target="_blank">LinkedIn</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+</body>
+
+{% block javascript %}
+<script>
+    const menuOpen = document.querySelector(".top-nav .menu-open");
+    const menuClose = document.querySelector(".top-nav .menu-close");
+    const menuWrapper = document.querySelector(".top-nav .menu-wrapper");
+    const topBannerOverlay = document.querySelector(".top-banner-overlay");
+
+    function toggleMenu() {
+        menuOpen.addEventListener("click", () => {
+            menuWrapper.classList.add("is-opened");
+            topBannerOverlay.classList.add("is-moved");
+        });
+
+        menuClose.addEventListener("click", () => {
+            menuWrapper.classList.remove("is-opened");
+            topBannerOverlay.classList.remove("is-moved");
+        });
+    }
+
+    toggleMenu();
+</script>
+{% endblock %}
+
+</html>
