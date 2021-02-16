@@ -50,8 +50,6 @@ logging.info("Loading data...")
 data = pd.read_csv('CSV_1/MLW_PivotExport/MLW_Data.csv',
                    encoding="ISO-8859-1", parse_dates=['EventDate'])
 
-data['EventDate'] = (data['EventDate'] -
-                     dt.datetime(1970, 1, 1)).dt.total_seconds()
 
 # Delete database file if it exists currently
 if os.path.exists(DB_FILE):
