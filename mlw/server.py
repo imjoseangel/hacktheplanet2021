@@ -38,6 +38,17 @@ def graph1():
     return render_template("graph1.html")
 
 
+@connex_app.route("/graph2")
+def graph2():
+    """
+    This function just responds to the browser URL
+    localhost:5000/people
+
+    :return:        the rendered template "people.html"
+    """
+    return render_template("graph2.html")
+
+
 if __name__ == "__main__":
     # connex_app.run(debug=True)
     serve(connex_app.app)
