@@ -4,7 +4,6 @@
 from __future__ import (division, absolute_import, print_function,
                         unicode_literals)
 
-import datetime as dt
 from glob import glob
 import logging
 import os
