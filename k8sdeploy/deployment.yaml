@@ -28,8 +28,8 @@ spec:
         readinessProbe: # is the container ready to receive traffic?
           httpGet:
             port: 8080
-            path: /ui
+            path: /api/ui/
         livenessProbe: # is the container healthy?
           httpGet:
             port: 8080
-            path: /ui
+            path: /api/ui/
