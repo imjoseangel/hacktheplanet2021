@@ -10,28 +10,9 @@
 </head>
 
 <body>
-    <section class="top-banner">
-        <div class="top-banner-overlay">
-            <h1>Hack the Planet 2021</h1>
-            <p>In today's world, climate change is much more than a vague threat — it's an ever-present reality. As
-                humans continue to
-                impact the environment and a related financial and technological gap persists, vulnerable populations
-                are being hit the
-                hardest and fastest. The planet needs our help!
-                <br><br>
-                Litter, plastics in particular, is accumulating in our seas and coasts. Information and data on marine
-                litter is
-                essential for tackling it.
-                <br><br><b>Data Source: </b><a style='color:white'
-                    href="https://www.eea.europa.eu/themes/water/europes-seas-and-coasts/assessments/marine-litterwatch"
-                    target="_blank">European Environment
-                    Agency</a><br><br>
-                This project has been developed for fun and is part of the <b><a style='color:white'
-                        href="https://dev.to/devteam/announcing-the-new-relic-hack-the-planet-contest-on-dev-5d"
-                        target="_blank">New Relic Hack the Planet Contest</a></b>
-            </p>
-        </div>
-    </section>
+    {% block body %}
+    {% endblock %}
+
     <nav class="top-nav">
         <div class="menu-wrapper">
             <ul class="menu">
@@ -81,9 +62,6 @@
             </ul>
         </div>
     </nav>
-
-    {% block body %}
-    {% endblock %}
 </body>
 
 {% block javascript %}
