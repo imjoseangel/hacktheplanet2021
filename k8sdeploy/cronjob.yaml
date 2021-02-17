@@ -13,7 +13,7 @@ spec:
           containers:
           - name: mlw-sender
             image: docker.io/imjoseangel/hacktheplanet2021:latest
-            imagePullPolicy: IfNotPresent
+            imagePullPolicy: Never
             command: ["python3", "/opt/mlw/senddata.py"]
             env:
             - name: NR_ACCOUNT
