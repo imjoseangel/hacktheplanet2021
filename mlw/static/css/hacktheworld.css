@@ -1055,6 +1055,7 @@ footer .right-content {
   font-size: 42px;
   text-transform: capitalize;
   font-weight: 700;
+  color: #1e1e1e;
   letter-spacing: 1px;
 }
 
@@ -1068,11 +1069,11 @@ footer .right-content {
 }
 
 .footer-content .right-content a {
-  color: #FFF;
+  color: #FC3;
 }
 
 .footer-content .right-content a:hover {
-  color: #FC3;
+  color: #fba70b;
 }
 
 footer .social {
