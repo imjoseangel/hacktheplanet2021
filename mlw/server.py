@@ -24,29 +24,7 @@ def home():
 
     :return:        the rendered template "home.html"
     """
-    return render_template("home.html")
-
-
-@connex_app.route("/graph1")
-def graph1():
-    """
-    This function just responds to the browser URL
-    localhost:5000/people
-
-    :return:        the rendered template "people.html"
-    """
-    return render_template("graph1.html")
-
-
-@connex_app.route("/graph2")
-def graph2():
-    """
-    This function just responds to the browser URL
-    localhost:5000/people
-
-    :return:        the rendered template "people.html"
-    """
-    return render_template("graph2.html")
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
