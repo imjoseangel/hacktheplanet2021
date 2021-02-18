@@ -5,6 +5,7 @@ flask_marshmallow
 flask_sqlalchemy
 Flask-SQLAlchemy-Caching
 marshmallow-sqlalchemy
+newrelic
 pandas
 redis
 waitress

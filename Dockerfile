@@ -24,4 +24,4 @@ RUN python3 build_database.py
 
 EXPOSE 8080
 
-CMD ["python3", "/opt/mlw/server.py"]
+CMD ["newrelic-admin", "run-python", "/opt/mlw/server.py"]
