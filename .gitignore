@@ -137,5 +137,5 @@ dmypy.json
 # Downloaded zip
 *.zip
 
-# K8S Secrets
-k8sdeploy/secrets.yaml
+# Secrets
+secrets.*
