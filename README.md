@@ -59,3 +59,4 @@ I have used the following items:
 * The graphs **Share/Get Chart Link** (Embeddables) option to embed them into the portal.
 * The **Dashboard** to keep the graphs.
 * The **APM** to monitor the application.
+* **Notification Policies** to receive Alerts.
