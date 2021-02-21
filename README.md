@@ -12,7 +12,7 @@ Science and Observation
 
 ### App Link
 
-https://hacktheplanet2021.20-69-170-196.nip.io
+https://hacktheplanet.mywire.org/
 
 ### Screenshots
 
