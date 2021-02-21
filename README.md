@@ -20,16 +20,15 @@ https://hacktheplanet.mywire.org/
 
 ![Screen Shot 2021-02-18 at 15.28.08](https://www.therelicans.com/remoteimages/uploads/articles/csf9tkzfzcs6dpohfz6t.png)
 
-![Screen Shot 2021-02-18 at 15.28.19](https://www.therelicans.com/remoteimages/uploads/articles/3qm16mv8es82u5oadfkx.png)
+![Screen Shot 2021-02-21 at 21.10.57](https://www.therelicans.com/remoteimages/uploads/articles/18v5sb4s4k8fia6plr4o.png) 
 
 ![Screen Shot 2021-02-18 at 15.28.30](https://www.therelicans.com/remoteimages/uploads/articles/sazxwhz8n5mgmbywdgon.png)
 
-![Screen Shot 2021-02-18 at 15.29.30](https://www.therelicans.com/remoteimages/uploads/articles/2j6oea43aienwutvarml.png)
+![Screen Shot 2021-02-21 at 21.07.54](https://www.therelicans.com/remoteimages/uploads/articles/w0s9pzdmza8j4xc79nct.png)
 
-![Screen Shot 2021-02-18 at 15.31.57](https://www.therelicans.com/remoteimages/uploads/articles/9lyanc0zh8347vttv019.png)
+![Screen Shot 2021-02-21 at 21.08.32](https://www.therelicans.com/remoteimages/uploads/articles/bqstxrcdyozqnmsful0o.png)
 
-![Screen Shot 2021-02-18 at 15.31.08](https://www.therelicans.com/remoteimages/uploads/articles/w82egngsmo2hyy9zpk9v.png)
-     
+![Screen Shot 2021-02-21 at 21.09.18](https://www.therelicans.com/remoteimages/uploads/articles/ssrnfa92jcrfrqajmnk0.png)
 
 ### Description
 
@@ -55,10 +54,8 @@ This *API Solution* is an approach to help consuming the data from the MLW proje
  
 I have used the following items:
 
-* The **Event API** as the main resource to send the data every minute.
+* The **Event API** as the main resource to send the data every 10 minutes.
 * The **query builder** and **data explorer** to create the graphs.
-* The graphs **Share/Get Chart Link** option to embed them into the portal.
+* The graphs **Share/Get Chart Link** (Embeddables) option to embed them into the portal.
 * The **Dashboard** to keep the graphs.
 * The **APM** to monitor the application.
-* The **Infrastructure** to monitor the K8S Cluster.
-* The **Embeddables** for the graphs in the Portal.
