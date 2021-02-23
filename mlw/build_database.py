@@ -26,6 +26,9 @@ DB_FILE = 'mlw.db'
 logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s",
                     datefmt="%d-%b-%y %H:%M:%S", stream=sys.stdout, level=logging.INFO)
 
+# Set local path
+here = normpath(abspath(dirname(__file__)))
+
 # Download data
 logging.info("Downloading data...")
 response = requests.get(
@@ -38,33 +41,32 @@ downloadlink = re.search(
 
 logging.info("Saving data...")
 zipfile = requests.get(downloadlink)
-open(ZIP_FILE, 'wb').write(zipfile.content)
+open(f'{here}/{ZIP_FILE}', 'wb').write(zipfile.content)
 
 logging.info("Uzipping data...")
-zipObject = ZipFile(ZIP_FILE, 'r')
-zipObject.extractall()
+zipObject = ZipFile(f'{here}/{ZIP_FILE}', 'r')
+zipObject.extractall(path=here)
 
 logging.info("Loading data...")
 # Data to initialize database with
-data = pd.read_csv('CSV_1/MLW_PivotExport/MLW_Data.csv', encoding="ISO-8859-1")
+data = pd.read_csv(
+    f'{here}/CSV_1/MLW_PivotExport/MLW_Data.csv', encoding="ISO-8859-1")
 
 # Delete database file if it exists currently
-if os.path.exists(DB_FILE):
-    os.remove(DB_FILE)
+if os.path.exists(f'{here}/{DB_FILE}'):
+    os.remove(f'{here}/{DB_FILE}')
 
 # Create the database
 db.create_all()
 
 # populate the database
-conn = sqlite3.connect(DB_FILE)
+conn = sqlite3.connect(f'{here}/{DB_FILE}')
 data.to_sql('mlw', conn, if_exists='append')
 
 db.session.commit()
 
 # Clean files
 logging.info("Cleaning files...")
-
-here = normpath(abspath(dirname(__file__)))
 
 for path_spec in CLEAN_FILES:
     # Make paths absolute and relative to this path
@@ -79,4 +81,4 @@ for path_spec in CLEAN_FILES:
         rmtree(path)
 
 logging.info(f'removing {ZIP_FILE}')
-os.remove(ZIP_FILE)
+os.remove(f'{here}/{ZIP_FILE}')
