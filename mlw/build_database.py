@@ -8,15 +8,14 @@ from glob import glob
 import logging
 import os
 from os.path import abspath, dirname, normpath
-import pandas as pd
 import re
-import requests
 from shutil import rmtree
 import sqlite3
 import sys
 from zipfile import ZipFile
+import pandas as pd
+import requests
 from config import db
-from models import MarinaLitterWatch
 
 CLEAN_FILES = ('./CSV_1', './CSV_2')
 ZIP_FILE = 'fme.zip'
