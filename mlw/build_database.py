@@ -16,6 +16,7 @@ from zipfile import ZipFile
 import pandas as pd
 import requests
 from config import db
+from models import MarinaLitterWatch
 
 CLEAN_FILES = ('./CSV_1', './CSV_2')
 ZIP_FILE = 'fme.zip'
