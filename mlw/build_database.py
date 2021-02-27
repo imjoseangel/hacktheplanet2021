@@ -12,6 +12,8 @@ import re
 from shutil import rmtree
 import sqlite3
 import sys
+import folium
+from folium.plugins import FastMarkerCluster
 from zipfile import ZipFile
 import pandas as pd
 import requests
@@ -21,6 +23,7 @@ from models import MarinaLitterWatch
 CLEAN_FILES = ('./CSV_1', './CSV_2')
 ZIP_FILE = 'fme.zip'
 DB_FILE = 'mlw.db'
+MAP_FILE = 'locations.html'
 
 # Set Logging
 logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s",
@@ -64,6 +67,17 @@ conn = sqlite3.connect(f'{here}/{DB_FILE}')
 data.to_sql('mlw', conn, if_exists='append')
 
 db.session.commit()
+
+# Create Map
+folium_map = folium.Map(location=[40.416729, -3.703339],
+                        zoom_start=4,
+                        tiles='CartoDB dark_matter')
+
+FastMarkerCluster(data=list(
+    zip(data['lat_y1'].values, data['lon_x1'].values))).add_to(folium_map)
+folium.LayerControl().add_to(folium_map)
+
+folium_map.save(f'{here}/templates/{MAP_FILE}')
 
 # Clean files
 logging.info("Cleaning files...")

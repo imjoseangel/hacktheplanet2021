@@ -27,6 +27,11 @@ def home():
     return render_template("index.html")
 
 
+@connex_app.route("/locations")
+def locations():
+    return render_template('locations.html')
+
+
 if __name__ == "__main__":
     # connex_app.run(debug=True)
     serve(connex_app.app)
