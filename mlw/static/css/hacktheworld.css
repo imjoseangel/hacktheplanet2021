@@ -21,16 +21,16 @@ Table of contents
 10. preloader
 
 --------------------------------------------- */
-/* 
+/*
 ---------------------------------------------
 font & reset css
---------------------------------------------- 
+---------------------------------------------
 */
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
-/* 
+/*
 ---------------------------------------------
 reset
---------------------------------------------- 
+---------------------------------------------
 */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
 pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
@@ -106,10 +106,10 @@ p {
   color: #888;
 }
 
-/* 
+/*
 ---------------------------------------------
 global styles
---------------------------------------------- 
+---------------------------------------------
 */
 html,
 body {
@@ -229,10 +229,10 @@ button.main-button:hover {
 }
 
 
-/* 
+/*
 ---------------------------------------------
 header
---------------------------------------------- 
+---------------------------------------------
 */
 
 .background-header {
@@ -648,10 +648,10 @@ header
 }
 
 
-/* 
+/*
 ---------------------------------------------
 welcome
---------------------------------------------- 
+---------------------------------------------
 */
 .welcome-area {
   width: 100%;
@@ -714,7 +714,7 @@ welcome
   .welcome-area {
     height: auto;
   }
-  .welcome-area .header-text {       
+  .welcome-area .header-text {
     width: 92%;
     padding-top: 793px;
   }
@@ -732,7 +732,7 @@ welcome
     padding-top: 100%;
     margin-left: 0;
   }
-    
+
   .container-fluid .col-md-12 {
     margin-right: 0px;
     padding-right: 0px;
@@ -845,6 +845,46 @@ promotion
   margin-top: 3px;
 }
 
+/*
+---------------------------------------------
+locations
+---------------------------------------------
+*/
+
+#locations {
+  padding: 100px 0px;
+}
+
+#locations .left-image {
+  align-self: center;
+}
+
+#locations .right-text ul {
+  padding: 0;
+  margin: 0;
+}
+
+#locations .right-text ul li {
+  display: inline-block;
+  margin-bottom: 60px;
+}
+
+#locations .right-text ul li:last-child {
+  margin-bottom: 0px;
+}
+
+#locations .right-text img {
+  display: inline-block;
+  float: left;
+  margin-right: 30px;
+}
+
+#locations .right-text h4 {
+  font-size: 22px;
+  color: #1e1e1e;
+  margin-bottom: 15px;
+  margin-top: 3px;
+}
 
 /*
 --------------------------------------------
@@ -955,10 +995,10 @@ newrelic
   }
 }
 
-/* 
+/*
 ---------------------------------------------
 footer
---------------------------------------------- 
+---------------------------------------------
 */
 
 @media (max-width: 992px) {
@@ -998,7 +1038,7 @@ footer .footer-content {
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-  
+
 }
 
 footer .right-content {
@@ -1152,10 +1192,10 @@ footer .sub-footer p {
   }
 }
 
-/* 
+/*
 ---------------------------------------------
 preloader
---------------------------------------------- 
+---------------------------------------------
 */
 #preloader {
   overflow: hidden;
