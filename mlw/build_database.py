@@ -70,7 +70,7 @@ db.session.commit()
 
 # Create Map
 folium_map = folium.Map(location=[40.416729, -3.703339],
-                        zoom_start=4,
+                        zoom_start=2,
                         tiles='CartoDB dark_matter')
 
 FastMarkerCluster(data=list(
