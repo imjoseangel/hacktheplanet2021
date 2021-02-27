@@ -70,11 +70,28 @@ db.session.commit()
 
 # Create Map
 folium_map = folium.Map(location=[40.416729, -3.703339],
-                        zoom_start=2,
-                        tiles='CartoDB dark_matter')
+                        zoom_start=3, min_zoom=3,
+                        tiles='Stamen Terrain')
+
+callback = ('function (row) {'
+            'var marker = L.marker(new L.LatLng(row[0], row[1]), {color: "red"});'
+            'var icon = L.AwesomeMarkers.icon({'
+            "icon: 'info-sign',"
+            "iconColor: 'white',"
+            "markerColor: 'red',"
+            "prefix: 'glyphicon',"
+            "extraClasses: 'fa-rotate-0'"
+            '});'
+            'marker.setIcon(icon);'
+            "var popup = L.popup({maxWidth: '300'});"
+            "const display_text = {text: row[2]};"
+            "var mytext = $(`<div id='mytext' class='display_text' style='width: 100.0%; height: 100.0%;'> ${display_text.text}</div>`)[0];"
+            "popup.setContent(mytext);"
+            "marker.bindPopup(popup);"
+            'return marker};')
 
 FastMarkerCluster(data=list(
-    zip(data['lat_y1'].values, data['lon_x1'].values))).add_to(folium_map)
+    zip(data['lat_y1'].values, data['lon_x1'].values, data['BeachName'].values)), callback=callback).add_to(folium_map)
 folium.LayerControl().add_to(folium_map)
 
 folium_map.save(f'{here}/templates/{MAP_FILE}')
