@@ -24,11 +24,13 @@ https://hacktheplanet.mywire.org/
 
 ![Screen Shot 2021-02-18 at 15.28.30](https://www.therelicans.com/remoteimages/uploads/articles/sazxwhz8n5mgmbywdgon.png)
 
+![Screen Shot 2021-02-28 at 00.32.44](https://www.therelicans.com/remoteimages/uploads/articles/bgmuoccn3nmljs2v88jv.png)
+
 ![Screen Shot 2021-02-21 at 21.07.54](https://www.therelicans.com/remoteimages/uploads/articles/w0s9pzdmza8j4xc79nct.png)
 
 ![Screen Shot 2021-02-21 at 21.08.32](https://www.therelicans.com/remoteimages/uploads/articles/bqstxrcdyozqnmsful0o.png)
 
-![Screen Shot 2021-02-21 at 21.09.18](https://www.therelicans.com/remoteimages/uploads/articles/ssrnfa92jcrfrqajmnk0.png)
+![Screen Shot 2021-02-28 at 20.15.33](https://www.therelicans.com/remoteimages/uploads/articles/e1ijtzagp8nipvr1ib2i.png) 
 
 ### Description
 
@@ -60,3 +62,4 @@ I have used the following items:
 * The **Dashboard** to keep the graphs.
 * The **APM** to monitor the application.
 * **Notification Policies** to receive unavailability Alerts.
+* **Synthetic Monitor** to check availability in different parts of the world.
