@@ -1,0 +1,15 @@
+[Unit]
+Description=Hack the Planet Service
+After=multi-user.target
+
+[Service]
+Environment="NEW_RELIC_LICENSE_KEY=<mykey>"
+Environment="NEW_RELIC_APP_NAME=mlw"
+Type=simple
+User=pi
+Group=adm
+Restart=always
+ExecStart=/home/pi/.pyenv/shims/newrelic-admin run-python /home/pi/hacktheplanet2021/mlw/server.py
+
+[Install]
+WantedBy=multi-user.target
