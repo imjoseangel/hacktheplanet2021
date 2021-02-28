@@ -5,6 +5,7 @@ flask_marshmallow
 flask_sqlalchemy
 Flask-SQLAlchemy-Caching
 folium
+hupper
 marshmallow-sqlalchemy
 newrelic
 pandas
