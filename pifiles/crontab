@@ -1,3 +1,6 @@
+NR_ACCOUNT=<myaccount>
+NR_API=<mykey>
+
 0 0 1 * * root bash /opt/letsencrypt/update-certs.sh
 */10 * * * * /home/pi/.pyenv/shims/python3 /home/pi/hacktheplanet2021/mlw/senddata.py >/dev/null 2>&1
 0 1 * * * /home/pi/.pyenv/shims/python3 /home/pi/hacktheplanet2021/mlw/build_database.py >/dev/null 2>&1
